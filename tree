@@ -1,0 +1,19 @@
+.
+|-- ./.gitignore
+|-- ./.gitlab-ci.yml
+|-- ./CMakeLists.txt
+|-- ./Makefile
+|-- ./README.md
+|-- ./conf
+|   `-- ./conf/global.toml
+|-- ./src
+|   |-- ./src/editor.cpp
+|   |-- ./src/editor.h
+|   |-- ./src/frame.cpp
+|   |-- ./src/frame.h
+|   `-- ./src/main.cpp
+|-- ./tree
+|-- ./tree.md
+`-- ./vcpkg.json
+
+2 directories, 14 files
