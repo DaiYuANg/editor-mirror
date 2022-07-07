@@ -1,0 +1,7 @@
+[project]
+name = "editor"
+authors = ["Mark Gillard <mark.gillard@outlook.com.au>"]
+version="0.1"
+
+[dependencies]
+cpp = 17

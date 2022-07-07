@@ -1,15 +1,18 @@
+/**
+ * wxWidgets "Editor" Program
+ * For compilers that support pre compilation, includes "wx/wx.h".
+ */
 #include <iostream>
+#include <toml++/toml.h>
 
-// wxWidgets "Hello World" Program
-
-// For compilers that support precompilation, includes "wx/wx.h".
 #include <wx/wxprec.h>
+namespace fs = std::filesystem;
 
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
 
-class MyApp : public wxApp
+class Editor : public wxApp
 {
 public:
     virtual bool OnInit();
@@ -31,10 +34,25 @@ enum
     ID_Hello = 1
 };
 
-wxIMPLEMENT_APP(MyApp);
+wxIMPLEMENT_APP(Editor);
 
-bool MyApp::OnInit()
+bool Editor::OnInit()
 {
+    toml::table tbl;
+    try
+    {
+        tbl = toml::parse_file("conf/global.toml");
+        std::cout << tbl << "\n\n";
+        std::cout << "Current working directory: " << fs::current_path() << '\n';
+    }
+    catch (const toml::parse_error& err)
+    {
+        std::cerr
+                << "Error parsing file '" << *err.source().path
+                << "':\n" << err.description()
+                << "\n  (" << err.source().begin << ")\n";
+        return 1;
+    }
     MyFrame *frame = new MyFrame();
     frame->Show(true);
     return true;
