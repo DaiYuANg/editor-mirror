@@ -2,6 +2,13 @@
 
 A text editor by wxwidgets
 
+## Real Repository
+if you see this on github and you want issue please check this link
+[my person gitlab](https://www.daiyuang.cloud:81/gitlab/daiyuang/editor)
+
+## TODO
+- finish this README
+
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
