@@ -5,9 +5,8 @@
 #ifndef EDITOR_EDITOR_H
 #define EDITOR_EDITOR_H
 
-
-class editor {
+class Editor : public wxApp {
+public:
+    virtual bool OnInit();
 };
-
-
 #endif //EDITOR_EDITOR_H
