@@ -23,7 +23,7 @@ include(${wxWidgets_USE_FILE})
 #auto update config
 configure_file(conf/global.toml ${PROJECT_BINARY_DIR}/conf/global.toml @ONLY)
 
-add_executable(main src/main.cpp src/editor.cpp src/editor.h src/frame.cpp src/frame.h src/layout.cpp src/layout.h src/windowS/major.cpp src/windowS/major.h)
+add_executable(main src/main.cpp src/app.cpp src/app.h src/frame.cpp src/frame.h src/layout.cpp src/layout.h src/button.cpp src/button.h src/components/editor.cpp src/components/editor.h)
 
 #target
 target_link_libraries(main PRIVATE ${wxWidgets_LIBRARIES})

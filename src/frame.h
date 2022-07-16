@@ -5,9 +5,7 @@
 #ifndef EDITOR_FRAME_H
 #define EDITOR_FRAME_H
 #ifndef WX_PRECOMP
-
 #include <wx/wx.h>
-
 #endif
 
 class EditorFrame : public wxFrame {

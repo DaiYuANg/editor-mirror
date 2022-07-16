@@ -5,19 +5,18 @@
 #ifndef WX_PRECOMP
 
 #include <wx/wx.h>
-
-#endif
-
-#include "editor.h"
+#include "app.h"
 #include "frame.h"
 #include <stdio.h>
 #include <sqlite3.h>
-#include "windowS/major.h"
 #include <toml++/toml.h>
+
+#endif
+
 
 namespace fs = std::filesystem;
 
-bool Editor::OnInit() {
+bool App::OnInit() {
     //test  sqlite
     sqlite3 *db;
     char *zErrMsg = nullptr;
@@ -31,6 +30,7 @@ bool Editor::OnInit() {
     } else {
         fprintf(stderr, "Opened database successfully\n");
     }
+
     sqlite3_close(db);
     toml::table tbl;
     try {

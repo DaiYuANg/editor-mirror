@@ -3,9 +3,11 @@
 //
 
 #include "frame.h"
+#include "button.h"
 
 EditorFrame::EditorFrame()
         : wxFrame(nullptr, wxID_ANY, "Hello World") {
+    Centre();
     auto *menuFile = new wxMenu;
     menuFile->Append(ID_Hello, "&Hello...\tCtrl-H",
                      "Help string shown in status bar for this menu item");
@@ -27,6 +29,15 @@ EditorFrame::EditorFrame()
     Bind(wxEVT_MENU, &EditorFrame::OnHello, this, ID_Hello);
     Bind(wxEVT_MENU, &EditorFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &EditorFrame::OnExit, this, wxID_EXIT);
+
+    auto *panel = new wxPanel(this, wxID_ANY);
+
+    auto *button = new wxButton(panel, wxID_EXIT, wxT("Quit"),
+                                wxPoint(20, 20));
+
+    Connect(wxID_EXIT, wxEVT_COMMAND_BUTTON_CLICKED,
+            wxCommandEventHandler(Button::OnQuit));
+    button->SetFocus();
 }
 
 void EditorFrame::OnExit(wxCommandEvent &event) {
